@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class C206_CaseStudyTest {
 	
+
+	// Deal //
 	private ArrayList<deal> dealList;
 	private deal d1, d2;
 
@@ -82,6 +84,76 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.deleteDeal(dealList, 0);
 		C206_CaseStudy.deleteDeal(dealList, 1);
 		
+	}
+	
+	// Bids //
+	
+	ArrayList<Bid> bidList = new ArrayList<Bid>();
+	C206_CaseStudy main;
+	
+	@Test // Adding Normal
+	public void testAdd() {
+		Bid newBid = new Bid(1,"Testing","Testing","Testing",1.00);
+		assertSame(true,C206_CaseStudy.addBid(bidList,newBid));
+	}
+	
+	@Test // Adding Error
+	public void testAddError() {
+		Bid newBid = new Bid(1,"Testing","Testing","Testing",1.00);
+		bidList.add(newBid);
+		Bid testBid = new Bid(1,"Testing","Testing","Testing",0.50);
+		assertSame(false,C206_CaseStudy.addBid(bidList, testBid));
+		
+	}
+		
+	@Test // Delete Normal
+	public void testDelete() {
+		Bid newBid = new Bid(1,"Testing","Testing","Testing",1.00);
+		bidList.add(newBid);
+		assertSame(true,C206_CaseStudy.deleteBid(bidList, 1));
+		
+	}
+	
+	@Test // Delete Error
+	public void testDeleteError() {
+		Bid newBid = new Bid(1,"Testing","Testing","Testing",1.00);
+		bidList.add(newBid);
+		assertSame(false,C206_CaseStudy.deleteBid(bidList, 2));
+	}
+	
+	// Category // 
+	
+	@Before
+	public void setUp1() throws Exception {
+	}
+
+	@After
+	public void tearDown1() throws Exception {
+	}
+
+	@Test
+	public void addCategoryTest() {
+		ArrayList<Category> catList = new ArrayList<Category>();
+		Category cat1 = new Category("CD");
+		catList.add(cat1);
+		
+		assertEquals(1, catList.size());
+	}
+	
+	@Test
+	public void viewAllCategoriesTest() {
+
+	}
+	
+	@Test
+	public void deleteCategoryTest() {
+		ArrayList<Category> catList = new ArrayList<Category>();
+		Category cat1 = new Category("CD");
+		catList.add(cat1);
+		
+		catList.remove(cat1);
+		
+		assertEquals(0, catList.size());
 	}
 	
 	
