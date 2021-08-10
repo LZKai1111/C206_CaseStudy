@@ -45,7 +45,7 @@ public class C206_CaseStudy {
 		            String Email = Helper.readString("Enter  Email > ");
 		            String Password = Helper.readString("Enter Password > ");
 		            Student newSchedule = new Student(Name, Role, Email, Password);
-		            boolean result = addStudent(studentList, newSchedule);
+		            addStudent(studentList, newSchedule);
 				}
 				
 				else if (subOption == 3) {
@@ -147,7 +147,7 @@ public class C206_CaseStudy {
 				}
 			}
 			
-			else if (subOption == 4) {
+			else if (mainOption == 4) {
 				dealMenu();
 				subOption = Helper.readInt("Enter an option number: ");
 				
