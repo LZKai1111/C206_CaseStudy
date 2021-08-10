@@ -156,5 +156,49 @@ public class C206_CaseStudyTest {
 		assertEquals(0, catList.size());
 	}
 	
+	// Student //
+	/*
+	ArrayList<Student> studentList = new ArrayList<Student>();
+
+	Student st1 = new Student("Ezekiel", "Role1", "ezekiel@gmail.com", "123456");
+	Student st2 = new Student ("Daw", "Role2", "daw@gmail.com", "abc1235");
+	@Test
+	  public void removeStudentTest() {
+	    assertNotNull("Test if there is valid Student arraylist to retrieve item", studentList);
+	    
+	    C206_CaseStudy.addStudent(studentList, st1);
+	    assertEquals("Check that Student arraylist size is 1", 1, studentList.size());
+	    assertSame("Check that Student is added", st1, studentList.get(0));
+	    
+	    
+	    C206_CaseStudy.addStudent(studentList, st2);
+	    assertEquals("Check that Student arraylist size is 2", 2, studentList.size());
+	    assertSame("Check that Student is added", st2, studentList.get(1));
+	    
+	    
+	    C206_CaseStudy.removeStudent(studentList, st2.getStudentID());
+	    assertEquals("Check that Student arraylist size is 1", 1, studentList.size());
+	    assertSame("Check that Student is added", st1, studentList.get(0));
+	    
+	  
+	  }
+	
+	@Test
+	  public void addStudentTest() {
+	    // Item list is not null, so that can add a new item - boundary
+	    assertNotNull("Check if there is valid Student arraylist to add to", studentList);
+	    //Given an empty list, after adding 1 item, the size of the list is 1 - normal
+	    //The item just added is as same as the first item of the list
+	    C206_CaseStudy.addStudent(studentList, st1);
+	    assertEquals("Check that Student arraylist size is 1", 1, studentList.size());
+	    assertSame("Check that Student is added", st1, studentList.get(0));
+	    
+	    //Add another item. test The size of the list is 2? -normal
+	    //The item just added is as same as the second item of the list
+	    C206_CaseStudy.addStudent(studentList, st2);
+	    assertEquals("Check that Student arraylist size is 2", 2, studentList.size());
+	    assertSame("Check that Student is added", st2, studentList.get(1));
+	  }
+		*/
 	
 }
