@@ -8,12 +8,18 @@ public class C206_CaseStudy {
 		
 		//Deal Array List//
 		ArrayList<deal> dealList = new ArrayList<deal>();
+		deal d1 = new deal(0, "chair", "Von@email", "Franc@email", 20.00, "8/8");
+		deal d2 = new deal(1, "table", "Bobert@email", "john@email", 50.00, "6/6");
+		dealList.add(d1);
+		dealList.add(d2);
 		
 		//Student Array List//
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		
 		//Category Array List//
 		ArrayList<Category> catList = new ArrayList<Category>();
+		
+		
 		
 		int mainOption = 0;
 		int subOption = 0;
@@ -322,29 +328,79 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete Student");
 	}
 	
-	private static String getallstudentList(ArrayList<Student> studentList) {
-		// TODO Auto-generated method stub
-		return null;
+	private static int getallstudentList(ArrayList<Student> studentList) {
+		return studentList.size();
+	
 	}
 
-	private static boolean removeStudent(ArrayList<Student> studentList, String deleteStudentemail) {
-		// TODO Auto-generated method stub
-		return false;
+	public static boolean removeStudent(ArrayList<Student> studentList, String deleteStudentemail) {
+
+	        boolean a = false;
+	        for (int i = 0; i < studentList.size(); i++) {
+	            Student s = studentList.get(i);
+	            ///if (s.getStudentID() == deleteStudentID) {
+	                studentList.remove(i);
+	                a = true;
+	                break;
+	            ///}
+	        }
+	        System.out.println("STUDENT DELETE SUCCESSFULL !");
+	        return a;
+	    }
+
+	public static String getStudentListByEmail(ArrayList<Student> studentList, String deleteStudentemail) {
+		String output = "";
+
+        for (int i = 0; i < studentList.size(); i++) {
+            Student s = studentList.get(i);
+
+                output += String.format("%-3s %-15s %-30s \n", "ID", "NAME", "ROLE", "EMAIL");
+                output += String.format("%-3s %-15s %-30s \n", 
+                        s.getName(), s.getRole(), s.getEmail());
+
+ 
+        }
+
+        return output;
+    }
+
+	public static String studentListToString(ArrayList<Student> studentList) {
+		String output = "";
+        output += String.format("%-3s %-12s %-30s %-10s\n", "ID", "NAME", "ROLE", "EMAIL", "PASSWORD");
+        for (int i = 0; i < studentList.size(); i++) {
+            Student s = studentList.get(i);
+            output += String.format("%-3s %-30s %-10s\n", 
+                    s.getName(), s.getRole(), s.getEmail());
+        }
+        System.out.println("VIEW ALL STUDENT SUCCESSFULL !");
+        return output;
 	}
 
-	private static String getStudentListByEmail(ArrayList<Student> studentList, String deleteStudentemail) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public static boolean addStudent(ArrayList<Student> studentList, Student newSchedule) {
+	    boolean r = false;
+        if (newSchedule.getName().isEmpty() == true ||  newSchedule.getRole().isEmpty() == true ||
+                newSchedule.getEmail().isEmpty() == true || newSchedule.getPassword().isEmpty() == true )
+             {
+            r = false;
 
-	private static String studentListToString(ArrayList<Student> studentList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        } else {
+            r = true;
+            studentList.add(newSchedule);
+            System.out.println("Student ADDED SUCCESSFULL !");
 
-	private static boolean addStudent(ArrayList<Student> studentList, Student newSchedule) {
-		// TODO Auto-generated method stub
-		return false;
+        }
+        return r;
+    }
+
+	public static void MainMenu() {
+		Helper.line(42, "-");
+		System.out.println("WELCOME TO AUCTION");
+		Helper.line(42, "-");
+		
+		System.out.println("1. View Student");
+		System.out.println("2. Add Student");
+		System.out.println("3. Delete Student");
+	
 	}
 	
 	// ============================Category Section============================== //
